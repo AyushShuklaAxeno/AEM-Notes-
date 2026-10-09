@@ -98,11 +98,11 @@ AEM is not a single product; it is a suite of integrated enterprise applications
 
 ```mermaid
 flowchart TD
-    Authors["Content Authors / Marketers"] -->|Create & Edit Content| AuthorInst["AEM Author Instance (Port 4502)"]
-    AuthorInst -->|Replication / Activation| PublishInst["AEM Publish Instance (Port 4503)"]
-    PublishInst -->|Dynamic Content Delivery| Dispatcher["Dispatcher (Apache Module: Cache + Filter)"]
-    Dispatcher -->|Cached Responses / Static Assets| CDN["CDN (Fastly / Cloudflare / Akamai)"]
-    CDN -->|Global Edge Delivery| EndUsers["End Users (Browsers / Mobile Apps)"]
+    Authors["Content Authors / Marketers"] -->|"Create and Edit Content"| AuthorInst["AEM Author Instance (Port 4502)"]
+    AuthorInst -->|"Replication / Activation"| PublishInst["AEM Publish Instance (Port 4503)"]
+    PublishInst -->|"Dynamic Content Delivery"| Dispatcher["Dispatcher (Apache Module: Cache and Filter)"]
+    Dispatcher -->|"Cached Responses / Static Assets"| CDN["CDN (Fastly / Cloudflare / Akamai)"]
+    CDN -->|"Global Edge Delivery"| EndUsers["End Users (Browsers / Mobile Apps)"]
 ```
 
 ---
@@ -242,7 +242,7 @@ sequenceDiagram
             Disp->>Pub: Forward Request to Publish (Port 4503)
             Pub->>Oak: Sling resolves URL to /content/mysite/en/about
             Oak-->>Pub: Read sling:resourceType (mysite/components/page)
-            Pub->>Pub: Execute HTL scripts & Sling Model Java logic
+            Pub->>Pub: Execute HTL scripts and Sling Model Java logic
             Pub-->>Disp: Return Rendered HTML Response
             Disp->>Disp: Cache HTML file to disk
             Disp-->>CDN: Return HTML
@@ -291,6 +291,6 @@ sequenceDiagram
   - **Publish**: Where live content is rendered for end consumers.
   - **Dispatcher**: Sits in front of Publish for high-speed file caching and URL security filtering.
   - **CDN**: Edge network ensuring minimal latency across global geographies.
-- **Internal Stack**: Java JVM $\rightarrow$ OSGi (modularity) $\rightarrow$ JCR/Oak (hierarchical storage) $\rightarrow$ Apache Sling (URL-to-resource mapping) $\rightarrow$ HTL (secure templating).
+- **Internal Stack**: Java JVM → OSGi (modularity) → JCR/Oak (hierarchical storage) → Apache Sling (URL-to-resource mapping) → HTL (secure templating).
 - **Modern Standard**: **AEM as a Cloud Service (AEMaaCS)** is the cloud-native, auto-scaling, auto-updating enterprise standard.
 

@@ -668,10 +668,10 @@ HTL escapes every expression by default. Developers explicitly specify the inten
 
 ```mermaid
 flowchart LR
-    A["1. JCR Node<br/>(Stores Data)"] --> B["2. Apache Sling<br/>(Resolves Route & Resource)"]
+    A["1. JCR Node<br/>(Stores Data)"] --> B["2. Apache Sling<br/>(Resolves Route and Resource)"]
     B --> C["3. HTL View<br/>(Presentation Markup)"]
     C <--> D["4. Sling Model<br/>(POJO Business Logic)"]
-    D <--> E["5. OSGi Service<br/>(Backend Services & APIs)"]
+    D <--> E["5. OSGi Service<br/>(Backend Services and APIs)"]
 ```
 
 ### Walkthrough of an Author Action to Rendered Page:
